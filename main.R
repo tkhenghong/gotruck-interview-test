@@ -4,8 +4,6 @@ library(httr)
 library(jsonlite)
 library(ggplot2)
 
-
-rm(get100RandomNumber)
 getRandomNumbers = function (num = 100) {
   count = 1
   numbers = c();
