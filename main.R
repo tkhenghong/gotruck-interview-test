@@ -28,7 +28,7 @@ showRandomNumberHistogram = function(num) {
   ggplot(df, aes(x=number, y=frequency, fill= "red")) + geom_col(show.legend = FALSE)
 }
 
-showRandomNumberHistogram(200)
+showRandomNumberHistogram(100)
 
 
 
