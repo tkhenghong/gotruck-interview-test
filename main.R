@@ -9,7 +9,7 @@ getRandomNumbers = function (num = 100) {
   numbers = c();
   while (count <= num) {
     res = GET("http://localhost:8080/question1")
-    numbers = c(numbers, (fromJSON(rawToChar(res$content)))[[1]])
+    numbers = c(numbers, as.character((fromJSON(rawToChar(res$content)))[[1]]))
     count = count + 1
   }
   
@@ -20,12 +20,12 @@ x = 0:9
 
 showRandomNumberHistogram = function(num) {
   list = getRandomNumbers(num)
-  length(list)
+  print(paste(list))
   mean(list)
   str(list)
-  factor(list)
+  listFactor = factor(list)
   df = data.frame(number=x, frequency=list)
-  ggplot(df, aes(x=number, y=frequency, fill= "red")) + geom_col(show.legend = FALSE)
+  ggplot(df, aes(y=frequency), color = "black", fill = "grey") + geom_bar(show.legend = FALSE) + coord_flip()
 }
 
 showRandomNumberHistogram(100)
